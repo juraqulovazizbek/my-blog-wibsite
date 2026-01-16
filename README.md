@@ -15,8 +15,8 @@ Loyiha **Django** asosida qurilgan va **Django Templates (HTML/CSS)** yordamida 
 
 Ushbu loyiha:
 - Django’da **toza struktura** bilan ishlashni
-- Frontend (templates) va backend (logic)ni **ajratib yozishni**
-- Real dunyodagi sport ma’lumotlari bilan ishlashga tayyor backend yaratishni
+- Frontend va backend qismlarini **ajratib yozishni**
+- Real sport ma’lumotlari bilan ishlashga tayyor backend yaratishni
 
 o‘rganish va namoyish qilish uchun ishlab chiqilgan.
 
@@ -26,38 +26,31 @@ o‘rganish va namoyish qilish uchun ishlab chiqilgan.
 
 ### 📰 Yangiliklar (News)
 - F1 yangiliklar ro‘yxati
-- Har bir yangilik uchun alohida sahifa
+- Yangilik detail sahifasi
 - Qidiruv (search)
-- RSS yoki API orqali real yangiliklarni ulashga tayyor
+- RSS yoki API ulashga tayyor
 
 ### 🏁 Poygalar (Races)
-- Formula 1 mavsum poygalar taqvimi
-- Har bir Grand Prix uchun detail sahifa
-- Race results (backend orqali to‘ldiriladi)
-- Season (yil) bo‘yicha filter
+- Formula 1 poygalar taqvimi
+- Har bir Grand Prix uchun alohida sahifa
+- Race results (backend orqali)
+- Season bo‘yicha filter
 
 ### 📊 Reyting (Standings)
 - Driver standings
 - Constructor standings
-- Season bo‘yicha reytinglarni ko‘rish
+- Season bo‘yicha ko‘rish
 
 ---
 
 ## 🧱 Loyiha arxitekturasi
 
-Loyiha **modulli yondashuv** asosida yozilgan.
-
-### Project (asosiy sozlamalar)
 - `core/` — Django project (settings, urls, wsgi, asgi)
-
-### App’lar
-- `news/` — yangiliklar logikasi
-- `races/` — poygalar va natijalar
+- `news/` — yangiliklar
+- `races/` — poygalar
 - `standings/` — reytinglar
-
-### Frontend
-- `templates/` — barcha HTML template’lar
-- `static/` — CSS, rasmlar va boshqa static fayllar
+- `templates/` — HTML frontend
+- `static/` — CSS va rasmlar
 
 ---
 
@@ -65,25 +58,11 @@ Loyiha **modulli yondashuv** asosida yozilgan.
 
 my-blog-wibsite/
 ├── core/
-│ ├── settings.py
-│ ├── urls.py
-│ ├── asgi.py
-│ └── wsgi.py
-│
 ├── news/
 ├── races/
 ├── standings/
-│
 ├── templates/
-│ ├── base.html
-│ ├── news/
-│ ├── races/
-│ └── standings/
-│
 ├── static/
-│ ├── css/
-│ └── img/
-│
 ├── manage.py
 ├── requirements.txt
 ├── .env
@@ -101,7 +80,7 @@ yaml
 ```bash
 git clone https://github.com/juraqulovazizbek/my-blog-wibsite.git
 cd my-blog-wibsite
-2️⃣ Virtual environment yaratish
+2️⃣ Virtual environment
 bash
 Копировать код
 python -m venv .venv
@@ -122,12 +101,12 @@ pip install -r requirements.txt
 bash
 Копировать код
 cp .env.example .env
-5️⃣ Migratsiyalar va server
+5️⃣ Server
 bash
 Копировать код
 python manage.py migrate
 python manage.py runserver
-Brauzerda oching:
+Brauzer:
 
 cpp
 Копировать код
@@ -135,46 +114,22 @@ http://127.0.0.1:8000/
 🔐 Muhim eslatmalar
 .env, .venv, db.sqlite3 GitHub’ga yuklanmaydi
 
-Maxfiy ma’lumotlar .env ichida saqlanadi
+Maxfiy sozlamalar .env ichida
 
-.env.example — loyiha uchun namuna fayl
+.env.example — namuna fayl
 
-🛠 Kelajakda qo‘shilishi rejalashtirilgan
-Real F1 API bilan poygalar va reytinglarni olish
+🛠 Rejalashtirilgan kengaytmalar
+F1 API ulash
 
-RSS orqali yangiliklarni avtomatik yangilash
+RSS auto update
 
-User authentication (login/register)
+User login/register
 
-Favorite driver / team
+Favorite driver/team
 
-Admin panel orqali content boshqarish
-
-Deploy (Render / Railway / VPS)
+Deploy (Render / Railway)
 
 👤 Muallif
 Azizbek
 Django Backend Developer
-📍 Uzbekistan
-
-📄 Litsenziya
-Ushbu loyiha o‘quv va portfolio maqsadlarida ishlab chiqilgan.
-
-markdown
-Копировать код
-
----
-
-## ✅ QANDAY QO‘LLAYSAN
-1. `README.md` ni och  
-2. Ichidagi hamma narsani o‘chir  
-3. Yuqoridagi **butun blokni** paste qil  
-4. Saqla → `git commit` → `git push`
-
-Agar xohlasang:
-- README’ni **ingliz tilida**
-- yoki **yana ham professional (job-ready)** variantini  
-- yoki **Najot Talim topshiriq formatida**
-
-ham qilib beraman.
-::contentReference[oaicite:0]{index=0}
+Uzbekistan
