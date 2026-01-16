@@ -126,4 +126,3 @@ Agar xohlasang:
 
 ham qilib beraman.
 ::contentReference[oaicite:0]{index=0}
-
