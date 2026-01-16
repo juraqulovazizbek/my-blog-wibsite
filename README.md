@@ -1,128 +1,149 @@
-# 🏎️ F1 Hub
+# 🏎️ F1 Hub — Django Project
 
-**F1 Hub** — Formula 1 bo‘yicha **yangiliklar**, **poygalar (calendar & results)** va **reytinglar (standings)**ni ko‘rsatadigan Django web-loyiha.
+Bu loyiha mening **birinchi mustaqil Django loyiham** hisoblanadi.  
+Loyiha Formula 1 mavzusiga bag‘ishlangan bo‘lib, kelajakda:
 
-Loyiha **Django Templates (HTML/CSS)** asosida qurilgan.  
-Frontend tayyor, backend qismi kengaytirishga ochiq.
+- 📰 F1 yangiliklari  
+- 🏁 F1 poygalar (calendar va natijalar)  
+- 📊 Driver va Constructor reytinglari  
+
+ni ko‘rsatadigan web-ilova bo‘lishi rejalashtirilgan.
+
+Hozircha loyiha **rivojlanish bosqichida**.
 
 ---
 
-## 🚀 Asosiy imkoniyatlar
+## 🎯 Loyiha maqsadi
 
-### 📰 Yangiliklar
-- F1 yangiliklar ro‘yxati
-- Qidiruv (search)
-- Yangilik tafsilotlari
-- Manba bo‘yicha ko‘rsatish (RSS yoki API orqali)
+Bu loyihani yaratishdan maqsad:
 
-### 🏁 Poygalar
-- Formula 1 poygalar taqvimi (season bo‘yicha)
-- Har bir Grand Prix sahifasi
-- Race results (backend orqali ulanadi)
-
-### 📊 Reyting (Standings)
-- Driver standings
-- Constructor standings
-- Season tanlash imkoniyati
+- Django framework’ni **amaliyotda o‘rganish**
+- Project va app’lar bilan **to‘g‘ri ishlash**
+- Frontend (HTML templates) va backend’ni **ajratib yozishni tushunish**
+- GitHub bilan ishlashni (commit, push, merge) o‘rganish
 
 ---
 
 ## 🛠 Texnologiyalar
 
-- **Python 3**
-- **Django**
-- **Django Templates (HTML)**
-- **Bootstrap 5**
-- **SQLite / PostgreSQL (backend tanloviga qarab)**
+- Python 3
+- Django
+- Django Templates (HTML)
+- CSS
+- Git & GitHub
+- SQLite (hozircha)
 
 ---
 
-## 📁 Loyiha strukturasi
+## 📌 Hozirgi holati
 
-f1-hub/
-├── core/
-├── news/
-├── races/
-├── standings/
-├── templates/
-│ ├── base.html
-│ ├── news/
-│ ├── races/
-│ └── standings/
-├── static/
-├── .env
-├── .env.example
+✅ Loyiha strukturasi yaratildi  
+✅ Django project va app’lar tayyor  
+✅ Frontend HTML sahifalar yozildi  
+❌ Backend logika hali to‘liq yozilmagan  
+❌ Real F1 API yoki RSS hali ulanmagan  
+
+> Loyiha ustida ish **davom etmoqda**.
+
+---
+
+## 🧱 Loyiha strukturasi
+
+my-blog-wibsite/
+├── core/ # Django project (settings, urls)
+├── news/ # Yangiliklar uchun app
+├── races/ # Poygalar uchun app
+├── standings/ # Reytinglar uchun app
+├── templates/ # HTML frontend
+├── static/ # CSS va rasmlar
 ├── manage.py
-└── requirements.txt
+├── requirements.txt
+├── .env.example
+└── README.md
 
-yaml
-Копировать код
 
 ---
 
-## ⚙️ O‘rnatish (Local)
+## 📄 App’lar haqida
 
-### 1️⃣ Repository’ni yuklab olish
+### 📰 news
+F1 yangiliklarini ko‘rsatish uchun mo‘ljallangan.  
+Hozircha faqat HTML sahifalar mavjud.
+
+### 🏁 races
+Formula 1 poygalar taqvimi va natijalari uchun.  
+Backend qismi keyinchalik yoziladi.
+
+### 📊 standings
+Driver va Constructor reytinglari uchun.  
+Hozircha frontend tayyor.
+
+---
+
+## ⚙️ Local’da ishga tushirish
+
+### 1️⃣ Repository’ni klonlash
 ```bash
-git clone <repo-url>
-cd f1-hub
-2️⃣ Virtual environment
-bash
-Копировать код
+git clone https://github.com/juraqulovazizbek/my-blog-wibsite.git
+cd my-blog-wibsite
+
+
+2️⃣ Virtual environment yaratish
 python -m venv .venv
-source .venv/bin/activate   # Windows: .venv\Scripts\activate
+
+
+Aktivatsiya:
+
+# Windows
+.venv\Scripts\activate
+
+# Linux / macOS
+source .venv/bin/activate
+
 3️⃣ Kutubxonalarni o‘rnatish
-bash
-Копировать код
 pip install -r requirements.txt
-4️⃣ .env sozlash
-bash
-Копировать код
-cp .env.example .env
-5️⃣ Serverni ishga tushirish
-bash
-Копировать код
+
+4️⃣ Serverni ishga tushirish
 python manage.py runserver
-Brauzerda oching:
 
-cpp
-Копировать код
+
+Brauzerda:
+
 http://127.0.0.1:8000/
+
 🔐 Muhim eslatmalar
-.env va db.sqlite3 Git’ga qo‘shilmaydi
 
-.env.example — jamoa uchun namuna
+.env, .venv, db.sqlite3 GitHub’ga yuklanmaydi
 
-Backend’da API / RSS / F1 data ulash rejalashtirilgan
+Maxfiy ma’lumotlar .env ichida saqlanadi
 
-📌 Rejalashtirilgan kengaytmalar
-Real F1 API orqali data olish
+.env.example — namuna fayl
 
-RSS orqali yangiliklarni avtomatik yangilash
+🚧 Kelajakda qilinadigan ishlar
 
-User login + favorites
+F1 API yoki RSS ulash
 
-Admin panel orqali content boshqarish
+Backend logic (models, views)
 
-Dark mode
+Pagination va search
+
+Admin panel
+
+User login/register
+
+Deploy (Render yoki Railway)
 
 👤 Muallif
+
 Azizbek
-Django Backend Developer
-📍 Uzbekistan
+Boshlovchi Django Backend Developer
+Uzbekistan 🇺🇿
 
-📄 Litsenziya
-Bu loyiha o‘quv va portfolio maqsadlarida yaratilgan.
+📌 Eslatma
 
-yaml
-Копировать код
+Bu loyiha o‘rganish va tajriba orttirish maqsadida yaratilgan.
+Vaqt o‘tishi bilan loyiha bosqichma-bosqich rivojlantiriladi.
 
----
-
-Agar xohlasang:
-- README’ni **ingliz tilida**
-- GitHub uchun **badge’lar** bilan
-- Demo screenshot joyi bilan
-
-ham qilib beraman.
-::contentReference[oaicite:0]{index=0}
+#
+#
+#git push origin main
