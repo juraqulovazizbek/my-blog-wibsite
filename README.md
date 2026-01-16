@@ -1,149 +1,119 @@
-# 🏎️ F1 Hub — Django Project
+🏎️ Formula 1 Blog Website
 
-Bu loyiha mening **birinchi mustaqil Django loyiham** hisoblanadi.  
-Loyiha Formula 1 mavzusiga bag‘ishlangan bo‘lib, kelajakda:
+Bu mening **birinchi Django loyiham**.  
+Loyiha Formula 1 mavzusida bo‘lib, unda F1 yangiliklari, poygalar va reytinglarni ko‘rsatish rejalashtirilgan.
 
-- 📰 F1 yangiliklari  
-- 🏁 F1 poygalar (calendar va natijalar)  
-- 📊 Driver va Constructor reytinglari  
-
-ni ko‘rsatadigan web-ilova bo‘lishi rejalashtirilgan.
-
-Hozircha loyiha **rivojlanish bosqichida**.
+Hozircha loyiha **boshlang‘ich bosqichda**. Frontend va loyiha strukturasi mavjud, backend qismi esa **keyinchalik bosqichma-bosqich qo‘shiladi**.
 
 ---
 
-## 🎯 Loyiha maqsadi
-
-Bu loyihani yaratishdan maqsad:
-
-- Django framework’ni **amaliyotda o‘rganish**
-- Project va app’lar bilan **to‘g‘ri ishlash**
-- Frontend (HTML templates) va backend’ni **ajratib yozishni tushunish**
-- GitHub bilan ishlashni (commit, push, merge) o‘rganish
-
----
-
-## 🛠 Texnologiyalar
-
-- Python 3
-- Django
-- Django Templates (HTML)
-- CSS
-- Git & GitHub
-- SQLite (hozircha)
+## 🎯 Loyihaning maqsadi
+Bu loyiha orqali men:
+- Django framework bilan ishlashni
+- Project va app’larni to‘g‘ri ajratishni
+- Git va GitHub bilan ishlashni
+- Frontend (HTML, CSS) va backend’ni birlashtirishni
+o‘rganmoqdaman.
 
 ---
 
-## 📌 Hozirgi holati
+## 🚧 Loyiha holati
+- ✅ Loyiha strukturasi tayyor
+- ✅ HTML template’lar mavjud
+- ❌ Backend (models, views, database) hali to‘liq yozilmagan
+- 🔜 Keyingi bosqichlarda backend qo‘shiladi
 
-✅ Loyiha strukturasi yaratildi  
-✅ Django project va app’lar tayyor  
-✅ Frontend HTML sahifalar yozildi  
-❌ Backend logika hali to‘liq yozilmagan  
-❌ Real F1 API yoki RSS hali ulanmagan  
-
-> Loyiha ustida ish **davom etmoqda**.
+Bu **o‘quv (education) loyiha** hisoblanadi.
 
 ---
 
-## 🧱 Loyiha strukturasi
+## 📌 Rejalashtirilgan funksiyalar
+- 📰 Formula 1 yangiliklarini ko‘rsatish
+- 🏁 Poygalar jadvali
+- 🏆 Haydovchilar (Driver) reytingi
+- 🏆 Jamoalar (Constructor) reytingi
+- 🎨 Oddiy va tushunarli frontend
+- ⚙️ Django backend
 
+---
+
+## 🗂️ Loyiha strukturasi
+```text
 my-blog-wibsite/
-├── core/ # Django project (settings, urls)
-├── news/ # Yangiliklar uchun app
-├── races/ # Poygalar uchun app
-├── standings/ # Reytinglar uchun app
-├── templates/ # HTML frontend
-├── static/ # CSS va rasmlar
+├── core/                # Django project (settings, urls, wsgi)
+├── news/                # Yangiliklar uchun app
+├── races/               # Poygalar uchun app
+├── standings/           # Reytinglar uchun app
+├── templates/           # HTML sahifalar
+├── static/              # CSS, JS, rasmlar
 ├── manage.py
-├── requirements.txt
-├── .env.example
+├── requirements.txt     # Kutubxonalar ro‘yxati
+├── .env.example         # Muhit sozlamalari namunasi
 └── README.md
-
-
----
-
-## 📄 App’lar haqida
-
-### 📰 news
-F1 yangiliklarini ko‘rsatish uchun mo‘ljallangan.  
-Hozircha faqat HTML sahifalar mavjud.
-
-### 🏁 races
-Formula 1 poygalar taqvimi va natijalari uchun.  
-Backend qismi keyinchalik yoziladi.
-
-### 📊 standings
-Driver va Constructor reytinglari uchun.  
-Hozircha frontend tayyor.
-
----
-
-## ⚙️ Local’da ishga tushirish
-
-### 1️⃣ Repository’ni klonlash
-```bash
+💻 Ishga tushirish bo‘yicha qo‘llanma
+1️⃣ Repository’ni yuklab olish
+bash
+Копировать код
 git clone https://github.com/juraqulovazizbek/my-blog-wibsite.git
 cd my-blog-wibsite
-
-
 2️⃣ Virtual environment yaratish
+Virtual muhit kutubxonalarni alohida saqlash uchun kerak.
+
+bash
+Копировать код
 python -m venv .venv
+3️⃣ Virtual environment’ni yoqish
+Windows:
 
-
-Aktivatsiya:
-
-# Windows
+bash
+Копировать код
 .venv\Scripts\activate
+Mac / Linux:
 
-# Linux / macOS
+bash
+Копировать код
 source .venv/bin/activate
-
-3️⃣ Kutubxonalarni o‘rnatish
+4️⃣ Kerakli kutubxonalarni o‘rnatish
+bash
+Копировать код
 pip install -r requirements.txt
+5️⃣ .env fayl yaratish
+Bu faylda maxfiy sozlamalar bo‘ladi.
 
-4️⃣ Serverni ishga tushirish
+bash
+Копировать код
+copy .env.example .env
+So‘ng .env ichini kerakli qiymatlar bilan to‘ldiring.
+
+6️⃣ Serverni ishga tushirish
+bash
+Копировать код
 python manage.py runserver
+Brauzerda oching:
+👉 http://127.0.0.1:8000/
 
+🧠 Rejalashtirilgan model’lar
+Kelajakda quyidagi model’lar qo‘shiladi:
 
-Brauzerda:
+News – yangiliklar
 
-http://127.0.0.1:8000/
+Race – poygalar
 
-🔐 Muhim eslatmalar
+DriverStanding – haydovchilar reytingi
 
-.env, .venv, db.sqlite3 GitHub’ga yuklanmaydi
+ConstructorStanding – jamoalar reytingi
 
-Maxfiy ma’lumotlar .env ichida saqlanadi
+📸 Screenshotlar
+Hozircha mavjud emas.
+Keyinchalik loyiha rivojlangach qo‘shiladi.
 
-.env.example — namuna fayl
-
-🚧 Kelajakda qilinadigan ishlar
-
-F1 API yoki RSS ulash
-
-Backend logic (models, views)
-
-Pagination va search
-
-Admin panel
-
-User login/register
-
-Deploy (Render yoki Railway)
+📄 License
+Ushbu loyiha o‘quv maqsadida yaratilgan.
 
 👤 Muallif
+Azizbek Juraqulov
+GitHub: https://github.com/juraqulovazizbek
 
-Azizbek
-Boshlovchi Django Backend Developer
-Uzbekistan 🇺🇿
+⭐ Agar loyiha yoqsa, yulduzcha (star) bosib qo‘yishingiz mumkin 🙂
 
-📌 Eslatma
 
-Bu loyiha o‘rganish va tajriba orttirish maqsadida yaratilgan.
-Vaqt o‘tishi bilan loyiha bosqichma-bosqich rivojlantiriladi.
-
-#
-#
-#git push origin main
