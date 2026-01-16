@@ -1,87 +1,131 @@
-# 🏎️ F1 Hub
+# 🏎️ F1 Hub — Django Web Application
 
-**F1 Hub** — Formula 1 bo‘yicha **yangiliklar**, **poygalar (calendar & results)** va **reytinglar (standings)**ni ko‘rsatadigan Django web-loyiha.
+**F1 Hub** — Formula 1 mavzusiga bag‘ishlangan web-ilova bo‘lib, unda:
+- 📰 F1 **yangiliklari**
+- 🏁 F1 **poygalar taqvimi va natijalari**
+- 📊 **Driver va Constructor reytinglari**
 
-Loyiha **Django Templates (HTML/CSS)** asosida qurilgan.  
-Frontend tayyor, backend qismi kengaytirishga ochiq.
+ko‘rsatiladi.
+
+Loyiha **Django** asosida qurilgan va **Django Templates (HTML/CSS)** yordamida frontend qismi ishlab chiqilgan.
 
 ---
 
-## 🚀 Asosiy imkoniyatlar
+## 🎯 Loyiha maqsadi
 
-### 📰 Yangiliklar
+Ushbu loyiha:
+- Django’da **toza struktura** bilan ishlashni
+- Frontend (templates) va backend (logic)ni **ajratib yozishni**
+- Real dunyodagi sport ma’lumotlari bilan ishlashga tayyor backend yaratishni
+
+o‘rganish va namoyish qilish uchun ishlab chiqilgan.
+
+---
+
+## 🚀 Asosiy funksiyalar
+
+### 📰 Yangiliklar (News)
 - F1 yangiliklar ro‘yxati
+- Har bir yangilik uchun alohida sahifa
 - Qidiruv (search)
-- Yangilik tafsilotlari
-- Manba bo‘yicha ko‘rsatish (RSS yoki API orqali)
+- RSS yoki API orqali real yangiliklarni ulashga tayyor
 
-### 🏁 Poygalar
-- Formula 1 poygalar taqvimi (season bo‘yicha)
-- Har bir Grand Prix sahifasi
-- Race results (backend orqali ulanadi)
+### 🏁 Poygalar (Races)
+- Formula 1 mavsum poygalar taqvimi
+- Har bir Grand Prix uchun detail sahifa
+- Race results (backend orqali to‘ldiriladi)
+- Season (yil) bo‘yicha filter
 
 ### 📊 Reyting (Standings)
 - Driver standings
 - Constructor standings
-- Season tanlash imkoniyati
+- Season bo‘yicha reytinglarni ko‘rish
 
 ---
 
-## 🛠 Texnologiyalar
+## 🧱 Loyiha arxitekturasi
 
-- **Python 3**
-- **Django**
-- **Django Templates (HTML)**
-- **Bootstrap 5**
-- **SQLite / PostgreSQL (backend tanloviga qarab)**
+Loyiha **modulli yondashuv** asosida yozilgan.
+
+### Project (asosiy sozlamalar)
+- `core/` — Django project (settings, urls, wsgi, asgi)
+
+### App’lar
+- `news/` — yangiliklar logikasi
+- `races/` — poygalar va natijalar
+- `standings/` — reytinglar
+
+### Frontend
+- `templates/` — barcha HTML template’lar
+- `static/` — CSS, rasmlar va boshqa static fayllar
 
 ---
 
-## 📁 Loyiha strukturasi
+## 📁 Papka strukturasi
 
-f1-hub/
+my-blog-wibsite/
 ├── core/
+│ ├── settings.py
+│ ├── urls.py
+│ ├── asgi.py
+│ └── wsgi.py
+│
 ├── news/
 ├── races/
 ├── standings/
+│
 ├── templates/
 │ ├── base.html
 │ ├── news/
 │ ├── races/
 │ └── standings/
+│
 ├── static/
+│ ├── css/
+│ └── img/
+│
+├── manage.py
+├── requirements.txt
 ├── .env
 ├── .env.example
-├── manage.py
-└── requirements.txt
+└── README.md
 
 yaml
 Копировать код
 
 ---
 
-## ⚙️ O‘rnatish (Local)
+## ⚙️ Local’da ishga tushirish
 
-### 1️⃣ Repository’ni yuklab olish
+### 1️⃣ Repository’ni klonlash
 ```bash
-git clone <repo-url>
-cd f1-hub
-2️⃣ Virtual environment
+git clone https://github.com/juraqulovazizbek/my-blog-wibsite.git
+cd my-blog-wibsite
+2️⃣ Virtual environment yaratish
 bash
 Копировать код
 python -m venv .venv
-source .venv/bin/activate   # Windows: .venv\Scripts\activate
+Aktivatsiya:
+
+bash
+Копировать код
+# Windows
+.venv\Scripts\activate
+
+# Linux / macOS
+source .venv/bin/activate
 3️⃣ Kutubxonalarni o‘rnatish
 bash
 Копировать код
 pip install -r requirements.txt
-4️⃣ .env sozlash
+4️⃣ Environment sozlash
 bash
 Копировать код
 cp .env.example .env
-5️⃣ Serverni ishga tushirish
+5️⃣ Migratsiyalar va server
 bash
 Копировать код
+python manage.py migrate
 python manage.py runserver
 Brauzerda oching:
 
@@ -89,22 +133,24 @@ cpp
 Копировать код
 http://127.0.0.1:8000/
 🔐 Muhim eslatmalar
-.env va db.sqlite3 Git’ga qo‘shilmaydi
+.env, .venv, db.sqlite3 GitHub’ga yuklanmaydi
 
-.env.example — jamoa uchun namuna
+Maxfiy ma’lumotlar .env ichida saqlanadi
 
-Backend’da API / RSS / F1 data ulash rejalashtirilgan
+.env.example — loyiha uchun namuna fayl
 
-📌 Rejalashtirilgan kengaytmalar
-Real F1 API orqali data olish
+🛠 Kelajakda qo‘shilishi rejalashtirilgan
+Real F1 API bilan poygalar va reytinglarni olish
 
 RSS orqali yangiliklarni avtomatik yangilash
 
-User login + favorites
+User authentication (login/register)
+
+Favorite driver / team
 
 Admin panel orqali content boshqarish
 
-Dark mode
+Deploy (Render / Railway / VPS)
 
 👤 Muallif
 Azizbek
@@ -112,17 +158,23 @@ Django Backend Developer
 📍 Uzbekistan
 
 📄 Litsenziya
-Bu loyiha o‘quv va portfolio maqsadlarida yaratilgan.
+Ushbu loyiha o‘quv va portfolio maqsadlarida ishlab chiqilgan.
 
-yaml
+markdown
 Копировать код
 
 ---
 
+## ✅ QANDAY QO‘LLAYSAN
+1. `README.md` ni och  
+2. Ichidagi hamma narsani o‘chir  
+3. Yuqoridagi **butun blokni** paste qil  
+4. Saqla → `git commit` → `git push`
+
 Agar xohlasang:
 - README’ni **ingliz tilida**
-- GitHub uchun **badge’lar** bilan
-- Demo screenshot joyi bilan
+- yoki **yana ham professional (job-ready)** variantini  
+- yoki **Najot Talim topshiriq formatida**
 
 ham qilib beraman.
 ::contentReference[oaicite:0]{index=0}
