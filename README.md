@@ -1,135 +1,128 @@
-# 🏎️ F1 Hub — Django Web Application
+# 🏎️ F1 Hub
 
-**F1 Hub** — Formula 1 mavzusiga bag‘ishlangan web-ilova bo‘lib, unda:
-- 📰 F1 **yangiliklari**
-- 🏁 F1 **poygalar taqvimi va natijalari**
-- 📊 **Driver va Constructor reytinglari**
+**F1 Hub** — Formula 1 bo‘yicha **yangiliklar**, **poygalar (calendar & results)** va **reytinglar (standings)**ni ko‘rsatadigan Django web-loyiha.
 
-ko‘rsatiladi.
-
-Loyiha **Django** asosida qurilgan va **Django Templates (HTML/CSS)** yordamida frontend qismi ishlab chiqilgan.
+Loyiha **Django Templates (HTML/CSS)** asosida qurilgan.  
+Frontend tayyor, backend qismi kengaytirishga ochiq.
 
 ---
 
-## 🎯 Loyiha maqsadi
+## 🚀 Asosiy imkoniyatlar
 
-Ushbu loyiha:
-- Django’da **toza struktura** bilan ishlashni
-- Frontend va backend qismlarini **ajratib yozishni**
-- Real sport ma’lumotlari bilan ishlashga tayyor backend yaratishni
-
-o‘rganish va namoyish qilish uchun ishlab chiqilgan.
-
----
-
-## 🚀 Asosiy funksiyalar
-
-### 📰 Yangiliklar (News)
+### 📰 Yangiliklar
 - F1 yangiliklar ro‘yxati
-- Yangilik detail sahifasi
 - Qidiruv (search)
-- RSS yoki API ulashga tayyor
+- Yangilik tafsilotlari
+- Manba bo‘yicha ko‘rsatish (RSS yoki API orqali)
 
-### 🏁 Poygalar (Races)
-- Formula 1 poygalar taqvimi
-- Har bir Grand Prix uchun alohida sahifa
-- Race results (backend orqali)
-- Season bo‘yicha filter
+### 🏁 Poygalar
+- Formula 1 poygalar taqvimi (season bo‘yicha)
+- Har bir Grand Prix sahifasi
+- Race results (backend orqali ulanadi)
 
 ### 📊 Reyting (Standings)
 - Driver standings
 - Constructor standings
-- Season bo‘yicha ko‘rish
+- Season tanlash imkoniyati
 
 ---
 
-## 🧱 Loyiha arxitekturasi
+## 🛠 Texnologiyalar
 
-- `core/` — Django project (settings, urls, wsgi, asgi)
-- `news/` — yangiliklar
-- `races/` — poygalar
-- `standings/` — reytinglar
-- `templates/` — HTML frontend
-- `static/` — CSS va rasmlar
+- **Python 3**
+- **Django**
+- **Django Templates (HTML)**
+- **Bootstrap 5**
+- **SQLite / PostgreSQL (backend tanloviga qarab)**
 
 ---
 
-## 📁 Papka strukturasi
+## 📁 Loyiha strukturasi
 
-my-blog-wibsite/
+f1-hub/
 ├── core/
 ├── news/
 ├── races/
 ├── standings/
 ├── templates/
+│ ├── base.html
+│ ├── news/
+│ ├── races/
+│ └── standings/
 ├── static/
-├── manage.py
-├── requirements.txt
 ├── .env
 ├── .env.example
-└── README.md
+├── manage.py
+└── requirements.txt
 
 yaml
 Копировать код
 
 ---
 
-## ⚙️ Local’da ishga tushirish
+## ⚙️ O‘rnatish (Local)
 
-### 1️⃣ Repository’ni klonlash
+### 1️⃣ Repository’ni yuklab olish
 ```bash
-git clone https://github.com/juraqulovazizbek/my-blog-wibsite.git
-cd my-blog-wibsite
+git clone <repo-url>
+cd f1-hub
 2️⃣ Virtual environment
 bash
 Копировать код
 python -m venv .venv
-Aktivatsiya:
-
-bash
-Копировать код
-# Windows
-.venv\Scripts\activate
-
-# Linux / macOS
-source .venv/bin/activate
+source .venv/bin/activate   # Windows: .venv\Scripts\activate
 3️⃣ Kutubxonalarni o‘rnatish
 bash
 Копировать код
 pip install -r requirements.txt
-4️⃣ Environment sozlash
+4️⃣ .env sozlash
 bash
 Копировать код
 cp .env.example .env
-5️⃣ Server
+5️⃣ Serverni ishga tushirish
 bash
 Копировать код
-python manage.py migrate
 python manage.py runserver
-Brauzer:
+Brauzerda oching:
 
 cpp
 Копировать код
 http://127.0.0.1:8000/
 🔐 Muhim eslatmalar
-.env, .venv, db.sqlite3 GitHub’ga yuklanmaydi
+.env va db.sqlite3 Git’ga qo‘shilmaydi
 
-Maxfiy sozlamalar .env ichida
+.env.example — jamoa uchun namuna
 
-.env.example — namuna fayl
+Backend’da API / RSS / F1 data ulash rejalashtirilgan
 
-🛠 Rejalashtirilgan kengaytmalar
-F1 API ulash
+📌 Rejalashtirilgan kengaytmalar
+Real F1 API orqali data olish
 
-RSS auto update
+RSS orqali yangiliklarni avtomatik yangilash
 
-User login/register
+User login + favorites
 
-Favorite driver/team
+Admin panel orqali content boshqarish
 
-Deploy (Render / Railway)
+Dark mode
 
 👤 Muallif
 Azizbek
 Django Backend Developer
-Uzbekistan
+📍 Uzbekistan
+
+📄 Litsenziya
+Bu loyiha o‘quv va portfolio maqsadlarida yaratilgan.
+
+yaml
+Копировать код
+
+---
+
+Agar xohlasang:
+- README’ni **ingliz tilida**
+- GitHub uchun **badge’lar** bilan
+- Demo screenshot joyi bilan
+
+ham qilib beraman.
+::contentReference[oaicite:0]{index=0}
