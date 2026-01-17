@@ -144,6 +144,3 @@ Uzbekistan 🇺🇿
 Bu loyiha o‘rganish va tajriba orttirish maqsadida yaratilgan.
 Vaqt o‘tishi bilan loyiha bosqichma-bosqich rivojlantiriladi.
 
-#
-#
-#git push origin main

@@ -1,0 +1,166 @@
+/* ===============================
+   CSS VARIABLES (THEME)
+================================ */
+:root {
+    --bg: #f5f6f8;
+    --bg-card: #ffffff;
+    --text: #1f1f1f;
+    --muted: #6c757d;
+    --primary: #e10600; /* F1 Red */
+    --navbar: #111111;
+}
+
+/* ===== Dark mode ===== */
+body.dark {
+    --bg: #0f1115;
+    --bg-card: #1a1d23;
+    --text: #eaeaea;
+    --muted: #9aa0a6;
+    --navbar: #000000;
+}
+
+/* ===============================
+   GLOBAL
+================================ */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: "Segoe UI", Tahoma, Arial, sans-serif;
+    background-color: var(--bg);
+    color: var(--text);
+    transition: background 0.3s, color 0.3s;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* ===============================
+   NAVBAR
+================================ */
+.navbar {
+    background-color: var(--navbar) !important;
+}
+
+.navbar-brand {
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.nav-link {
+    color: #ccc !important;
+    margin-left: 12px;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    color: var(--primary) !important;
+}
+
+/* ===============================
+   PAGE
+================================ */
+.page-title {
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+/* ===============================
+   CARDS
+================================ */
+.card {
+    background-color: var(--bg-card);
+    border: none;
+    border-radius: 14px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+}
+
+.card-title {
+    font-weight: 600;
+}
+
+.card-text {
+    color: var(--muted);
+}
+
+/* ===============================
+   BUTTONS
+================================ */
+.btn-f1 {
+    background-color: var(--primary);
+    color: #fff;
+    border-radius: 25px;
+    padding: 8px 18px;
+    border: none;
+}
+
+.btn-f1:hover {
+    background-color: #b00000;
+    color: #fff;
+}
+
+/* ===============================
+   TABLES
+================================ */
+.table {
+    background-color: var(--bg-card);
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.table thead {
+    background-color: var(--navbar);
+    color: #fff;
+}
+
+.table td,
+.table th {
+    vertical-align: middle;
+}
+
+/* ===============================
+   FOOTER
+================================ */
+footer {
+    background-color: var(--navbar);
+    color: #aaa;
+}
+
+/* ===============================
+   DARK MODE BUTTON
+================================ */
+.dark-toggle {
+    cursor: pointer;
+    border: 1px solid #444;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 14px;
+    color: #fff;
+}
+
+/* ===============================
+   RESPONSIVE
+================================ */
+@media (max-width: 768px) {
+    .navbar-brand {
+        font-size: 18px;
+    }
+
+    .nav-link {
+        margin-left: 0;
+    }
+
+    .card {
+        margin-bottom: 15px;
+    }
+}
